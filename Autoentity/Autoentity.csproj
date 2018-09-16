@@ -66,6 +66,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutBoxHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBoxHelp.Designer.cs">
+      <DependentUpon>AboutBoxHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     <Compile Include="Tools\SQLServerHelper.cs" />
     <Compile Include="Tools\StringPlugins.cs" />
     <Compile Include="Tools\ToolTipHelper.cs" />
+    <EmbeddedResource Include="AboutBoxHelp.resx">
+      <DependentUpon>AboutBoxHelp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>

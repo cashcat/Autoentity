@@ -217,7 +217,7 @@ on
                     break;
                 case DataBaseType.MySQL:
                     var database = node.Name.Substring(node.Name.IndexOf("Database=") + 9, node.Name.IndexOf(";port=") - node.Name.IndexOf("Database=") - 9);
-                    var sql1 = $"SELECT TABLE_NAME as 表名, Table_Comment as 表说明 FROM INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA = '{database}'";
+                    var sql1 = $"SELECT TABLE_NAME as tablename, Table_Comment as tablecomment FROM INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA = '{database}'";
                     var dt1 = MySQLHelper.QueryDataTable(node.Name, sql1);
                     if (dt1?.Rows.Count > 0)
                     {
@@ -226,8 +226,8 @@ on
                         {
                             var nodeItem = new TreeNode
                             {
-                                Text = item["表名"].ToString(),
-                                Name = item["表说明"].ToString(),
+                                Text = item["tablename"].ToString(),
+                                Name = item["tablecomment"].ToString(),
                                 Tag = type
                             };
                             node.Nodes.Add(nodeItem);
@@ -859,6 +859,11 @@ namespace {this.Namespace_TextBox.Text.Trim()}
                 });
                 this._MainInfoModel.LinkList.Add(linkInfo);
             }).ShowDialog();
+        }
+
+        private void 帮助ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
